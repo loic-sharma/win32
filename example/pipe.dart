@@ -102,8 +102,8 @@ class ServerCommand extends Command<void> {
         exit(1);
       }
 
-      result = WriteFile(pipe, lpPipeMessage, pipeMessage.length * 2,
-          lpNumBytesWritten, nullptr);
+      result = WriteFile(pipe, lpPipeMessage.cast<Uint8>(),
+          pipeMessage.length * 2, lpNumBytesWritten, nullptr);
       if (result == NULL) {
         stderr.writeln('Failed to send data.');
       } else {

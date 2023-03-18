@@ -225,7 +225,7 @@ int CoInitializeEx(Pointer pvReserved, int dwCoInit) =>
     _CoInitializeEx(pvReserved, dwCoInit);
 
 final _CoInitializeEx = _ole32.lookupFunction<
-    Int32 Function(Pointer pvReserved, Uint32 dwCoInit),
+    Int32 Function(Pointer pvReserved, Int32 dwCoInit),
     int Function(Pointer pvReserved, int dwCoInit)>('CoInitializeEx');
 
 /// Registers security and sets the default security values for the process.

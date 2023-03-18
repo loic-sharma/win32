@@ -274,7 +274,7 @@ class BITMAPINFOHEADER extends Struct {
   @Uint16()
   external int biBitCount;
 
-  @Int32()
+  @Uint32()
   external int biCompression;
 
   @Uint32()

@@ -79,7 +79,7 @@ void captureImage(int hwnd) {
     GetDIBits(hdcWindow, hbmScreen, 0, bmpScreen.ref.bmHeight, lpBitmap,
         bitmapInfoHeader.cast(), DIB_RGB_COLORS);
 
-    final hFile = CreateFile(TEXT('captureqwsz.bmp'), GENERIC_WRITE, 0, nullptr,
+    final hFile = CreateFile(TEXT('capture.bmp'), GENERIC_WRITE, 0, nullptr,
         CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, NULL);
 
     final dwSizeOfDIB =
@@ -91,9 +91,9 @@ void captureImage(int hwnd) {
     bitmapFileHeader.ref.bfType = 0x4D42; // BM
 
     final dwBytesWritten = calloc<DWORD>();
-    WriteFile(hFile, bitmapFileHeader, sizeOf<BITMAPFILEHEADER>(),
+    WriteFile(hFile, bitmapFileHeader.cast(), sizeOf<BITMAPFILEHEADER>(),
         dwBytesWritten, nullptr);
-    WriteFile(hFile, bitmapInfoHeader, sizeOf<BITMAPINFOHEADER>(),
+    WriteFile(hFile, bitmapInfoHeader.cast(), sizeOf<BITMAPINFOHEADER>(),
         dwBytesWritten, nullptr);
     WriteFile(hFile, lpBitmap, dwBmpSize, dwBytesWritten, nullptr);
 
