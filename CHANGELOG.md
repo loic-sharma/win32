@@ -1,3 +1,7 @@
+## 3.1.4
+
+- Fix missing export of crypt32 APIs
+
 ## 3.1.3
 
 - Restructure generator util to use JSON for all data files (#605, @timsneath)
